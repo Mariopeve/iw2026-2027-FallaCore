@@ -1,4 +1,4 @@
-# FallaCore - Plataforma de Gestión y Memoria del Carnaval de Cádiz
+# La Tramoya - Plataforma de Gestión y Memoria del Carnaval de Cádiz
 
 Sistema destinado a la digitalización del Concurso Oficial de Agrupaciones Carnavalescas (COAC) y la preservación de su archivo histórico.
 
