@@ -1,0 +1,103 @@
+name: Informe de error
+description: Comportamiento incorrecto en la aplicación
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 🐛 Reporte de Incidencia - Plataforma La Tramoya (COAC)
+        Gracias por registrar este error. Por favor, proporciona la mayor cantidad de detalles posible para que podamos reproducirlo y solucionarlo durante el sprint.
+
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: Pasos para reproducirlo
+      description: Describe con precisión las acciones necesarias para reproducir el fallo.
+      placeholder: |
+        1. Acceder a la vista 'Inscripción de Agrupaciones' en el Back-Office.
+        2. Seleccionar la modalidad 'COMPARSA' e introducir los datos de autoría.
+        3. Pulsar el botón 'Guardar borrador'.
+        4. Se produce un error inesperado en pantalla.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: Comportamiento actual
+      description: ¿Qué ocurrió exactamente? Incluye mensajes de error si los hubiera.
+      placeholder: "Se muestra una notificación de error 500 y la inscripción no queda registrada en la base de datos."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Comportamiento esperado
+      description: ¿Qué debería haber ocurrido de acuerdo a las reglas de negocio del concurso?
+      placeholder: "La inscripción debe guardarse en estado 'BORRADOR' y permitir adjuntar la documentación de los componentes."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected_module
+    attributes:
+      label: Módulo o área afectada
+      description: Selecciona el componente de La Tramoya donde se localiza el fallo.
+      options:
+        - "Back-Office: Inscripciones y Validación Documental"
+        - "Back-Office: Configuración de Edición, Bases y Fases"
+        - "Back-Office: Sorteo y Programación de Sesiones (Gran Teatro Falla)"
+        - "Back-Office: Jurado, Planillas de Puntuación y Fallos"
+        - "Front-Office: Archivo Histórico y Buscador Multi-criterio"
+        - "Front-Office: Fichas de Agrupaciones, Componentes y Palmarés"
+        - "Front-Office: Repertorio y Letras Digitalizadas"
+        - "Seguridad, Autenticación y Control de Acceso (RBAC)"
+        - "Infraestructura, Base de Datos PostgreSQL o AWS S3"
+        - "Otro"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severidad / Prioridad técnica
+      description: Impacto del error sobre la operativa del concurso o la plataforma.
+      options:
+        - "Alta (Bloqueante para el Sprint o para la operativa del COAC)"
+        - "Media (Funcionalidad dañada pero existen alternativas temporales)"
+        - "Baja (Detalle cosmético o mejora menor de UI/UX en Vaadin)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots_logs
+    attributes:
+      label: Capturas de pantalla o trazas de error (Logs)
+      description: Puedes arrastrar capturas de pantalla o pegar trazas de la consola / log de Spring Boot si dispones de ellas.
+      placeholder: "Pegar stacktrace o arrastrar capturas aquí..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Entorno de ejecución
+      description: Indica datos del entorno donde se reprodujo el fallo.
+      placeholder: |
+        - Perfil: Local (H2 / Dev) / Staging / Producción
+        - Navegador: Chrome 124 / Firefox / Edge
+        - Versión / Commit: feat/branch o hash
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: verification_checklist
+    attributes:
+      label: Verificación previa
+      options:
+        - label: He verificado que no existe ya un issue abierto que describa el mismo error.
+          required: true
+        - label: He comprobado que el error es reproducible siguiendo los pasos indicados.
+          required: true

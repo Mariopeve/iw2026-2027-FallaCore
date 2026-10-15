@@ -1,0 +1,92 @@
+name: Nueva funcionalidad
+description: Propuesta de nueva funcionalidad o historia de usuario para La Tramoya
+title: "[FEAT]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### ✨ Propuesta de Funcionalidad - Plataforma La Tramoya (COAC)
+        Utiliza esta plantilla para proponer una nueva característica, historia de usuario o mejora para el Product Backlog.
+
+  - type: textarea
+    id: user_story
+    attributes:
+      label: Historia de Usuario / Necesidad
+      description: Describe la funcionalidad en formato ágil orientado al valor aportado al COAC o al Ayuntamiento de Cádiz.
+      placeholder: |
+        Como [rol de usuario: Administrador Municipal / Jurado / Representante / Investigador]
+        Quiero [funcionalidad o acción concreta]
+        Para [beneficio, objetivo o regla de negocio que se satisface]
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Criterios de Aceptación (Condiciones de Éxito)
+      description: Lista clara y verificable de lo que debe cumplirse para considerar la funcionalidad completada.
+      placeholder: |
+        - [ ] El usuario con rol 'MUNICIPAL_ADMIN' puede definir las fechas límite de inscripción para la edición activa.
+        - [ ] El sistema bloquea el envío de inscripciones una vez vencido el plazo legal.
+        - [ ] Se emite un acuse de recibo con identificador único de registro.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: module
+    attributes:
+      label: Módulo o Épica principal
+      description: Selecciona el subsistema al que pertenece esta funcionalidad.
+      options:
+        - "Back-Office: Inscripciones y Validación Documental"
+        - "Back-Office: Configuración de Edición, Bases y Fases"
+        - "Back-Office: Sorteo y Programación de Sesiones (Gran Teatro Falla)"
+        - "Back-Office: Jurado, Planillas de Puntuación y Fallos"
+        - "Front-Office: Archivo Histórico y Buscador Multi-criterio"
+        - "Front-Office: Fichas de Agrupaciones, Componentes y Palmarés"
+        - "Front-Office: Repertorio y Letras Digitalizadas"
+        - "Seguridad, Autenticación y Control de Acceso (RBAC)"
+        - "Infraestructura, Base de Datos PostgreSQL o AWS S3"
+        - "Transversal / No funcional"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: target_roles
+    attributes:
+      label: Roles de usuario destinatarios
+      description: Marca todos los perfiles de usuario que interactuarán con esta característica.
+      options:
+        - label: Administrador Municipal (MUNICIPAL_ADMIN)
+        - label: Miembro / Presidente del Jurado (JURY_PRESIDENT / JURY_MEMBER)
+        - label: Representante Legal de Agrupación (GROUP_REPRESENTATIVE)
+        - label: Ciudadano / Investigador / Aficionado (PUBLIC_RESEARCHER / afición general)
+
+  - type: textarea
+    id: technical_proposal
+    attributes:
+      label: Propuesta técnica y arquitectura
+      description: Apuntes técnicos preliminares (entidades JPA, vistas Vaadin, servicios, migraciones de base de datos o endpoints).
+      placeholder: |
+        - Capa Dominio: Crear entidad `Registration` con estado `RegistrationStatus`.
+        - Capa Servicio: Implementar `RegistrationService.submitRegistration(...)` con validaciones de plazo.
+        - Capa UI (Vaadin): Vista `ui.admin.RegistrationFormView` con formulario reactivo.
+        - Tests: Pruebas unitarias de validación y de integración en Spring Data JPA.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: definition_of_done_alignment
+    attributes:
+      label: Compromiso con la Definición de Hecho (DoD) del equipo
+      description: La tarea se cerrará únicamente cuando cumpla con los estándares acordados en el plan de proyecto.
+      options:
+        - label: La funcionalidad contará con pruebas unitarias e integración sin fallos.
+          required: true
+        - label: El código pasará por Pull Request obligatorio con revisión del compañero.
+          required: true
+        - label: Se mantendrá el estándar de Clean Code, sin warnings de compilación ni secretos hardcodeados.
+          required: true
+        - label: Se documentará adecuadamente (Javadoc en español y notas para el manual de usuario).
+          required: true

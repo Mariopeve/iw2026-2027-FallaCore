@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Consultas sobre el Plan de Proyecto o Scrum
+    url: https://github.com
+    about: Para dudas sobre metodología o backlog, consulta docs/plan-proyecto.md o con el Scrum Master / Product Owner.
