@@ -11,6 +11,8 @@
 *.sln.docstates
 *.env
 
+AGENT_GUIDELINES.md
+
 target/
 pom.xml.tag
 pom.xml.releaseBackup
